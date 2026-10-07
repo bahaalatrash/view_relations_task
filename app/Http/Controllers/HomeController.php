@@ -15,4 +15,6 @@ return view('home',compact('name'));
 }
 
 
+
+
 }
