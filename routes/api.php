@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\MedicalFilesController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\StudentsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +26,16 @@ Route::get('/{student_id}',[MedicalFilesController::class,'show']);
 Route::post('/',[MedicalFilesController::class,'store']);
 Route::put('/{id}',[MedicalFilesController::class,'update']);
 
+});
+Route::prefix('/products')->group(function(){
+
+Route::get('/{id}',[ProductsController::class,'showDetails']);
+Route::post('/',[ProductsController::class,'store']);
+
+});
+Route::prefix('/categories')->group(function(){
+
+Route::get('/{id}',[CategoriesController::class,'show']);
+Route::post('/',[CategoriesController::class,'store']);
+Route::delete('/{id}',[CategoriesController::class,'destroy']);
 });
